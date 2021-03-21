@@ -1,15 +1,14 @@
-const title = 'Next.js Tailwind Starter';
-const description =
-    'A template for Next.js and Tailwindcss by Theodorus Clarence';
+const title = 'Enigmatics Finder';
+const description = "Can't remember your friend's NRP? Find NRP here with ease";
 
 const SEO = {
     title,
     description,
-    // canonical: 'https://theodorusclarence.com',
+    canonical: 'https://nrp.theodorusclarence.com',
     openGraph: {
         type: 'website',
         locale: 'en_IE',
-        url: 'https://theodorusclarence.com',
+        url: 'https://nrp.theodorusclarence.com',
         title,
         description,
         images: [

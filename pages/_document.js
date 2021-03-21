@@ -9,7 +9,13 @@ class MyDocument extends Document {
     render() {
         return (
             <Html>
-                <Head />
+                <Head>
+                    <link
+                        rel='shortcut icon'
+                        href='https://www.google.com/s2/favicons?domain=theodorusclarence.com'
+                        type='image/png'
+                    />
+                </Head>
                 <body>
                     <Main />
                     <NextScript />
