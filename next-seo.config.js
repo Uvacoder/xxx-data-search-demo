@@ -1,5 +1,5 @@
 const title = 'Enigmatics Finder';
-const description = "Can't remember your friend's NRP? Find NRP here with ease";
+const description = "Can't remember your friend's NRP? Find it here with ease";
 
 const SEO = {
     title,
