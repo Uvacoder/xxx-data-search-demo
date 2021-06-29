@@ -2,6 +2,9 @@ import { NextSeo } from 'next-seo';
 import CustomLink from '@/components/CustomLink';
 import { useEffect, useState } from 'react';
 import { nrpData } from '@/data/data';
+import { HiClipboard, HiUser } from 'react-icons/hi';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Home() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -32,7 +35,18 @@ export default function Home() {
     return (
         <>
             <NextSeo />
-
+            <div>
+                <Toaster
+                    reverseOrder={false}
+                    // toastOptions={{
+                    //     style: {
+                    //         borderRadius: '8px',
+                    //         background: '#333',
+                    //         color: '#fff',
+                    //     },
+                    // }}
+                />
+            </div>
             <main>
                 <section className='bg-dark'>
                     <div className='min-h-screen py-12 text-white layout'>
@@ -64,12 +78,40 @@ export default function Home() {
                                     {filteredList.map(({ nrp, name }) => (
                                         <li
                                             keys={nrp}
-                                            className='w-full py-3 text-base font-medium'
+                                            className='flex items-center w-full py-3'
                                         >
-                                            <span className='font-bold text-primary-400'>
-                                                {nrp}
-                                            </span>{' '}
-                                            - {name}
+                                            <div className='w-full py-3 text-base font-medium'>
+                                                <span className='font-bold text-primary-400'>
+                                                    {nrp}
+                                                </span>{' '}
+                                                - {name}
+                                            </div>
+                                            <div className='flex'>
+                                                <CopyToClipboard
+                                                    text={appendNrp(nrp)}
+                                                    onCopy={() =>
+                                                        toast.success(
+                                                            'NRP Copied to clipboard'
+                                                        )
+                                                    }
+                                                >
+                                                    <button className='p-1 rounded-full focus:outline-none focus:ring focus:ring-primary-400 hover:text-primary-400'>
+                                                        <HiClipboard className='text-lg' />
+                                                    </button>
+                                                </CopyToClipboard>
+                                                <CopyToClipboard
+                                                    text={name}
+                                                    onCopy={() =>
+                                                        toast.success(
+                                                            'Name Copied to clipboard'
+                                                        )
+                                                    }
+                                                >
+                                                    <button className='p-1 rounded-full focus:outline-none focus:ring focus:ring-primary-400 hover:text-primary-400'>
+                                                        <HiUser className='text-lg' />
+                                                    </button>
+                                                </CopyToClipboard>
+                                            </div>
                                         </li>
                                     ))}
                                 </>
@@ -80,4 +122,9 @@ export default function Home() {
             </main>
         </>
     );
+}
+
+function appendNrp(nrp) {
+    if (nrp[0] === '2') return '0511194' + nrp;
+    else return '0511194000' + nrp;
 }
