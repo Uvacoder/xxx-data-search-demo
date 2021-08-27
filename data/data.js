@@ -789,7 +789,7 @@ export const nrpData = [
     {
         name: 'Ishaq Adheltyo',
         nrp: '0167',
-        image: 'https://www.instagram.com/p/CAvBhBNpWu7/',
+        image: 'https://imgur.com/qoUhPRF',
     },
     {
         name: 'Naufaliando Yudo Kusumo',
