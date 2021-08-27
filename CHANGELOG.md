@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/theodorusclarence/nrp-finder-informatics19/compare/v0.1.0...v0.1.1) (2021-08-27)
+
+
+### Features
+
+* add instagram photo link ([7937a18](https://github.com/theodorusclarence/nrp-finder-informatics19/commit/7937a188719888f3ee4a405ee7124532851e6756))
+
 ## 0.1.0 (2021-08-27)
 
 
