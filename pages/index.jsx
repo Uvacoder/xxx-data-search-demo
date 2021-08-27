@@ -1,10 +1,13 @@
 import { NextSeo } from 'next-seo';
-import CustomLink from '@/components/CustomLink';
 import { useEffect, useState } from 'react';
-import { nrpData } from '@/data/data';
-import { HiClipboard, HiUser } from 'react-icons/hi';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 import toast, { Toaster } from 'react-hot-toast';
+import { HiClipboard, HiEye, HiUser } from 'react-icons/hi';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+
+import { nrpData } from '@/data/data';
+
+import CustomLink from '@/components/CustomLink';
+import UnstyledLink from '@/components/UnstyledLink';
 
 export default function Home() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -75,45 +78,55 @@ export default function Home() {
                                 <h3>Try to search something</h3>
                             ) : (
                                 <>
-                                    {filteredList.map(({ nrp, name }) => (
-                                        <li
-                                            keys={nrp}
-                                            className='flex items-center w-full py-3'
-                                        >
-                                            <div className='w-full py-3 text-base font-medium'>
-                                                <span className='font-bold text-primary-400'>
-                                                    {nrp}
-                                                </span>{' '}
-                                                - {name}
-                                            </div>
-                                            <div className='flex'>
-                                                <CopyToClipboard
-                                                    text={appendNrp(nrp)}
-                                                    onCopy={() =>
-                                                        toast.success(
-                                                            'NRP Copied to clipboard'
-                                                        )
-                                                    }
-                                                >
-                                                    <button className='p-1 rounded-full focus:outline-none focus:ring focus:ring-primary-400 hover:text-primary-400'>
-                                                        <HiClipboard className='text-lg' />
-                                                    </button>
-                                                </CopyToClipboard>
-                                                <CopyToClipboard
-                                                    text={name}
-                                                    onCopy={() =>
-                                                        toast.success(
-                                                            'Name Copied to clipboard'
-                                                        )
-                                                    }
-                                                >
-                                                    <button className='p-1 rounded-full focus:outline-none focus:ring focus:ring-primary-400 hover:text-primary-400'>
-                                                        <HiUser className='text-lg' />
-                                                    </button>
-                                                </CopyToClipboard>
-                                            </div>
-                                        </li>
-                                    ))}
+                                    {filteredList.map(
+                                        ({ nrp, name, image }) => (
+                                            <li
+                                                keys={nrp}
+                                                className='flex items-center w-full py-3'
+                                            >
+                                                <div className='w-full py-3 text-base font-medium'>
+                                                    <span className='font-bold text-primary-400'>
+                                                        {nrp}
+                                                    </span>{' '}
+                                                    - {name}
+                                                </div>
+                                                <div className='flex'>
+                                                    {image && (
+                                                        <UnstyledLink
+                                                            href={image}
+                                                            className='p-1 rounded-full focus:outline-none focus:ring focus:ring-primary-400 hover:text-primary-400'
+                                                        >
+                                                            <HiEye className='text-lg' />
+                                                        </UnstyledLink>
+                                                    )}
+                                                    <CopyToClipboard
+                                                        text={appendNrp(nrp)}
+                                                        onCopy={() =>
+                                                            toast.success(
+                                                                'NRP Copied to clipboard'
+                                                            )
+                                                        }
+                                                    >
+                                                        <button className='p-1 rounded-full focus:outline-none focus:ring focus:ring-primary-400 hover:text-primary-400'>
+                                                            <HiClipboard className='text-lg' />
+                                                        </button>
+                                                    </CopyToClipboard>
+                                                    <CopyToClipboard
+                                                        text={name}
+                                                        onCopy={() =>
+                                                            toast.success(
+                                                                'Name Copied to clipboard'
+                                                            )
+                                                        }
+                                                    >
+                                                        <button className='p-1 rounded-full focus:outline-none focus:ring focus:ring-primary-400 hover:text-primary-400'>
+                                                            <HiUser className='text-lg' />
+                                                        </button>
+                                                    </CopyToClipboard>
+                                                </div>
+                                            </li>
+                                        )
+                                    )}
                                 </>
                             )}
                         </ul>
