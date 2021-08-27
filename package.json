@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "release": "standard-version"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.2.1",
@@ -19,5 +20,8 @@
     "react-hot-toast": "^2.0.0",
     "react-icons": "^4.2.0",
     "tailwindcss": "^2.0.2"
+  },
+  "devDependencies": {
+    "standard-version": "^9.3.1"
   }
 }
