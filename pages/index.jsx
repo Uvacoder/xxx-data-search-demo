@@ -39,23 +39,16 @@ export default function Home() {
         <>
             <Seo />
             <div>
-                <Toaster
-                    reverseOrder={false}
-                    // toastOptions={{
-                    //     style: {
-                    //         borderRadius: '8px',
-                    //         background: '#333',
-                    //         color: '#fff',
-                    //     },
-                    // }}
-                />
+                <Toaster reverseOrder={false} />
             </div>
             <main>
                 <section className='bg-dark'>
                     <div className='min-h-screen py-12 text-white layout'>
                         <div className='flex flex-col items-center'>
-                            <h1>Enigmatics Finder</h1>
-                            <p className='mt-4 mb-8'>
+                            <h1 className='text-2xl md:text-4xl'>
+                                Enigmatics Finder
+                            </h1>
+                            <p className='mt-3 mb-8 text-gray-300'>
                                 By{' '}
                                 <CustomLink href='https://theodorusclarence.com'>
                                     Theodorus Clarence
@@ -63,19 +56,25 @@ export default function Home() {
                             </p>
                         </div>
                         <div className='flex flex-col max-w-lg mx-auto space-y-2'>
-                            <label htmlFor='query' className='font-bold'>
-                                Search by name, nrp (4 last digits)
+                            <label
+                                htmlFor='query'
+                                className='text-sm font-medium'
+                            >
+                                Search by name or nrp (4 last digits)
                             </label>
                             <input
                                 value={searchTerm}
                                 onChange={handleSearch}
                                 type='text'
-                                className='border-white rounded-md bg-dark focus:ring-primary-400 focus:border-primary-400'
+                                id='query'
+                                className='border-gray-600 rounded-md bg-dark focus:ring-primary-400 focus:border-primary-400'
                             />
                         </div>
                         <ul className='max-w-lg mx-auto mt-4 divide-y'>
                             {first ? (
-                                <h3>Try to search something</h3>
+                                <h3 className='mt-4 text-center'>
+                                    Try to search something
+                                </h3>
                             ) : (
                                 <>
                                     {filteredList.map(
