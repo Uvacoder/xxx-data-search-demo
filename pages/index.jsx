@@ -1,4 +1,3 @@
-import { NextSeo } from 'next-seo';
 import { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { HiClipboard, HiEye, HiUser } from 'react-icons/hi';
@@ -8,6 +7,7 @@ import { nrpData } from '@/data/data';
 
 import CustomLink from '@/components/CustomLink';
 import UnstyledLink from '@/components/UnstyledLink';
+import Seo from '@/components/Seo';
 
 export default function Home() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -37,7 +37,7 @@ export default function Home() {
 
     return (
         <>
-            <NextSeo />
+            <Seo />
             <div>
                 <Toaster
                     reverseOrder={false}
