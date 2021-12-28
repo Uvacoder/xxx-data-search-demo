@@ -15,6 +15,13 @@ class MyDocument extends Document {
                         href='https://www.google.com/s2/favicons?domain=theodorusclarence.com'
                         type='image/png'
                     />
+                    <script
+                        async
+                        defer
+                        data-website-id='eb8cf2f7-30f9-4c55-8e48-a0650724820c'
+                        src='https://umami.thcl.dev/umami.js'
+                        data-domains='nrp.thcl.dev'
+                    />
                 </Head>
                 <body>
                     <Main />
